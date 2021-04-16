@@ -1,0 +1,88 @@
+{
+    "pod_creation_log_name": "sockshop_local_exfil_test_cluster_creation_log.txt", 
+    "setup": {
+        "number_customer_records": 1000, 
+        "background_locust_spawn_rate": 10, 
+        "number_background_locusts": 20
+    }, 
+    "experiment_length_sec": 360, 
+    "exfiltration_info": {
+        "exfil_paths": [
+            [
+                "user-db", 
+                "user", 
+                "front-end"
+            ], 
+            [
+                "user-db", 
+                "front-end"
+            ], 
+            [
+                "user-db"
+            ]
+        ], 
+        "regex_of_file_to_exfil": "\"index-0*\"", 
+        "exfiltration_path_class_which_installer": {
+            "front-end": "apk", 
+            "user": "apk", 
+            "user-db": "apt"
+        }, 
+        "sensitive_ms": [
+            "user-db"
+        ], 
+        "sec_between_exfil_pkts": [
+            "None", 
+            "None", 
+            "None"
+        ], 
+        "DET_min_exfil_data_per_packet_bytes": [
+            300, 
+            300, 
+            300
+        ], 
+        "DET_avg_exfiltration_rate_KB_per_sec": [
+            1.0, 
+            1.0, 
+            1.0
+        ], 
+        "folder_to_exfil": "/data/db-users/", 
+        "exfil_protocols": [
+            "tcp", 
+            "tcp", 
+            "tcp"
+        ], 
+        "exfil_methods": [
+            "DET", 
+            "DET", 
+            "DET"
+        ], 
+        "exfil_StartEnd_times": [
+            [
+                120, 
+                140
+            ], 
+            [
+                160, 
+                180
+            ], 
+            [
+                200, 
+                220
+            ]
+        ], 
+        "DET_max_exfil_data_per_packet_bytes": [
+            400, 
+            400, 
+            400
+        ]
+    }, 
+    "experiment_name": "sockshop_local_exfil_test", 
+    "experiment": {
+        "traffic_type": "normal", 
+        "background_locust_spawn_rate": 10, 
+        "number_background_locusts": 40
+    }, 
+    "application_name": "sockshop", 
+    "pcap_file_name": "sockshop_local_exfil_test_default_bridge_0any.pcap", 
+    "network_plugin": "none"
+}

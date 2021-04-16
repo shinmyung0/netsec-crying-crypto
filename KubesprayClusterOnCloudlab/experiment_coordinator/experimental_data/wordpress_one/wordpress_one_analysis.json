@@ -1,0 +1,70 @@
+{
+    "pod_creation_log_name": "wordpress_one_cluster_creation_log.txt", 
+    "setup": {}, 
+    "experiment_length_sec": 360, 
+    "exfiltration_info": {
+        "exfil_paths": [], 
+        "regex_of_file_to_exfil": "\"galera.cach*\"", 
+        "exfiltration_path_class_which_installer": {
+            "wwwppp-wordpress": "apt", 
+            "my-release-pxc": "apt"
+        }, 
+        "sensitive_ms": [
+            "wwwppp-wordpress"
+        ], 
+        "sec_between_exfil_pkts": [
+            "None", 
+            "None", 
+            "None"
+        ], 
+        "DET_min_exfil_data_per_packet_bytes": [
+            300, 
+            300, 
+            300
+        ], 
+        "DET_avg_exfiltration_rate_KB_per_sec": [
+            1.0, 
+            1.0, 
+            1.0
+        ], 
+        "folder_to_exfil": "/var/lib/mysql/", 
+        "exfil_protocols": [
+            "tcp", 
+            "tcp", 
+            "tcp"
+        ], 
+        "exfil_methods": [
+            "DET", 
+            "DET", 
+            "DET"
+        ], 
+        "exfil_StartEnd_times": [
+            [
+                120, 
+                140
+            ], 
+            [
+                160, 
+                180
+            ], 
+            [
+                200, 
+                220
+            ]
+        ], 
+        "DET_max_exfil_data_per_packet_bytes": [
+            400, 
+            400, 
+            400
+        ]
+    }, 
+    "experiment_name": "wordpress_one", 
+    "experiment": {
+        "traffic_type": "normal", 
+        "background_locust_spawn_rate": "10", 
+        "number_background_locusts": "85"
+    }, 
+    "application_name": "wordpress", 
+    "pcap_file_name": "wordpress_one_default_bridge_0any.pcap", 
+    "network_plugin": "none"
+}

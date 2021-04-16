@@ -1,0 +1,11 @@
+{
+    "app_name" : "wordpress",
+    "exp_name" : "wordpress_example",
+    "local_path_to_exp_config" : "./experimental_configs/wordpress_example.json",
+    "local_dir" : "/Volumes/exM/experimental_data/wordpress_info",
+    "cloudlab_server_ip" : "c240g5-110107.wisc.cloudlab.us",
+    "exp_length" : 10800,
+    "physical_attacks_p" : false,
+    "cloudlab_private_key" : "/Users/jseverin/Dropbox/cloudlab.pem",
+    "user" : "jsev"
+}
