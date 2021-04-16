@@ -1,0 +1,1 @@
+kubectl apply -f basic_cadvisor.yaml
