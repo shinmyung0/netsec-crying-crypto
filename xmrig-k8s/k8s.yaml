@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: xmrig
+  labels:
+    name: xmrig
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: xmrig
+  name: xmrig-deployment
+  labels:
+    app: xmrig
+spec:
+  replicas: 16
+  selector:
+    matchLabels:
+      app: xmrig
+  template:
+    metadata:
+      labels:
+        app: xmrig
+    spec:
+      containers:
+        - name: xmrig
+          image: pmietlicki/monero-miner
+          imagePullPolicy: Always
+          env:
+            - name: POOL_URL
+              value: xmr.pool.minergate.com:45700
+            - name: POOL_USER
+              value: panawatm@andrew.cmu.edu 
+            - name: COIN
+              value: XMR
+          command:
+            - docker-entrypoint.sh

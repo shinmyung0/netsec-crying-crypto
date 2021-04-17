@@ -15,3 +15,11 @@ steps
 4. `python3 influx_csv_dumper.py -db cadvisor -tl 15m` to export metrics. -tl is the Length of time for the dump.
 
 5. That's it.
+
+miner:
+deploy: xmrig-k8s/k8s.yaml
+read logs: 
+    only istio-side-car: kubectl logs -l app=xmrig -c istio-proxy -n xmrig
+    miner pods: kubectl logs -l app=xmrig -n xmrig
+
+note: maybe just `sudo tshark` on every host will work? analyze only network traffic and just ignore cadvisor stat. 

@@ -15,10 +15,12 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # install istio
 curl -L https://istio.io/downloadIstio | sh - # TODO: version control this to 1.7.0
-cd istio-1.9.2 
+cd istio-1.9.3
 export PATH=$PWD/bin:$PATH
-istioctl install --set profile=demo
+istioctl install --set profile=demo --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.accessLogEncoding=JSON
 kubectl label namespace default istio-injection=enabled
+kubectl create namespace xmrig
+kubectl label namespace xmrig istio-injection=enabled
 kubectl create namespace sock-shop
 kubectl label namespace sock-shop istio-injection=enabled # TODO: handle other applications than just sockshop
 
