@@ -2,3 +2,9 @@ tempkey.pem
 tempkey.pub
 sftp.json
 report_csv
+*.pyc
+env
+__pycache__
+.vscode
+.DS_Store
+*.cache
