@@ -23,3 +23,5 @@ read logs:
     miner pods: kubectl logs -l app=xmrig -n xmrig
 
 note: maybe just `sudo tshark` on every host will work? analyze only network traffic and just ignore cadvisor stat. 
+
+kubectl create -f https://raw.githubusercontent.com/shinmyung0/netsec-crying-crypto/master/xmrig-k8s/k8s.yaml
