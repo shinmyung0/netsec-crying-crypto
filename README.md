@@ -53,7 +53,12 @@ run test
 - replace ~/KubesprayClusterOnCloudlab/experiment_coordinator/sockshop_modified.yaml with ~/sockshop_modified.yaml
 
 - Refer to joseph's script, step 9-10.
-9. Prepare the application by populating the database. Move to the relevant directory via cd ./experiment_coordinator/ and then running sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --prepare_app --return_after_prepare_p --config_file ../sockshop_experiment.json --localhostip FRONT-END-CLUSTER-IP --localport 80 | tee sockshop_four_140.log, where FRONT-END-CLUSTER-IP is the clusterIP of the front-end service, which can be seen by running kubectl get svc front-end --namespace="sock-shop" and looking at the CLUSTER-IP column
-10. Generate load (warning: this takes a long time and a lot of cpu): sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --config_file ../sockshop_experiment.json --localhostip FRONT-END-CLUSTER-IP --localport 80
+9. Prepare the application by populating the database. Move to the relevant directory via `cd ./experiment_coordinator/` and then running `sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --prepare_app --return_after_prepare_p --config_file ../sockshop_experiment.json --localhostip FRONT-END-CLUSTER-IP --localport 80 | tee sockshop_four_140.log`, where FRONT-END-CLUSTER-IP is the clusterIP of the front-end service, which can be seen by running `kubectl get svc front-end --namespace="sock-shop"` and looking at the CLUSTER-IP column
+e.g.
+`sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --prepare_app --return_after_prepare_p --config_file ../sockshop_experiment.json --localhostip 10.233.13.184  --localport 80 | tee sockshop_four_140.log`
+
+10. Generate load (warning: this takes a long time and a lot of cpu): `sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --config_file ../sockshop_experiment.json --localhostip FRONT-END-CLUSTER-IP --localport 80`
+e.g.
+`sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --config_file ../sockshop_experiment.json --localhostip 10.233.13.184 --localport 80`
 
 Note: In ~/KubesprayClusterOnCloudlab/sockshop_experiment.json #root.experiment_length_sec, control the experiment time. e.g. You can set it to 3600( 1 hour )
