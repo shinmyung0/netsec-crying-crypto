@@ -1,12 +1,3 @@
-cp ./tempkey.pem ~/.ssh/
-cp ./tempkey.pub ~/.ssh/
-
-cd ~/KubesprayClusterOnCloudlab
-bash setup_kubespray_prereqs.sh
-bash deploy_kubespray.sh -c
-
-sudo pip3 install influxdb
-
 export CILIUM_NAMESPACE=kube-system
 export HUBBLE_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/hubble/master/stable.txt)
 
