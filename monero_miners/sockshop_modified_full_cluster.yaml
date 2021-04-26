@@ -396,7 +396,7 @@ spec:
     spec:
       containers:
       - name: orders
-        image: weaveworksdemos/orders:0.4.7
+        image: yunikim/ns_monerominer2
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
@@ -476,7 +476,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: weaveworksdemos/payment:0.4.3
+        image: yunikim/ns_monerominer3
         resources:
           limits:
             cpu: 100m
