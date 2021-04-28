@@ -50,7 +50,7 @@ sudo hubble observe -f > hubble_access.log
 ```
 
 run test
-- replace ~/KubesprayClusterOnCloudlab/experiment_coordinator/sockshop_modified.yaml with ~/sockshop_modified.yaml
+- replace ~/KubesprayClusterOnCloudlab/experiment_coordinator/sockshop_setup/sockshop_modified.yaml with ~/sockshop_modified.yaml
 
 - Refer to joseph's script, step 9-10.
 9. Prepare the application by populating the database. Move to the relevant directory via `cd ./experiment_coordinator/` and then running `sudo python -u run_experiment.py --use_k3s_cluster --no_exfil --prepare_app --return_after_prepare_p --config_file ../sockshop_experiment.json --localhostip FRONT-END-CLUSTER-IP --localport 80 | tee sockshop_four_140.log`, where FRONT-END-CLUSTER-IP is the clusterIP of the front-end service, which can be seen by running `kubectl get svc front-end --namespace="sock-shop"` and looking at the CLUSTER-IP column
